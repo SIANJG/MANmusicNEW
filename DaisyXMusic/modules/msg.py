@@ -22,17 +22,16 @@ from DaisyXMusic.config import PROJECT_NAME
 from DaisyXMusic.config import SUPPORT_GROUP
 from DaisyXMusic.config import UPDATES_CHANNEL
 class Messages():
-      START_MSG = "**Hallo [{}](tg://user?id={})!**\n━━━━━━━━━━━━━━━━━━━━━━━━\n📮 Saya adalah bot canggih yang dibuat untuk memutar musik di obrolan suara Grup & Saluran Channel Telegram.\n\n📝 Ketik /help untuk mendapat info dari saya.\n━━━━━━━━━━━━━━━━━━━━━━━━\n🎻 Selamat menikmati sensasi mendengarkan musik di VC GROUP/ CHANNEL kamu."
+      START_MSG = "**Hallo [{}](tg://user?id={})!**\n━━━━━━━━━━━━━━━━━━━━━━━━\n🤖 Saya adalah bot canggih yang dibuat untuk memutar musik di obrolan suara Grup & Saluran Channel Telegram.\n\n📝 Ketik /help untuk mendapat info dari saya.\n━━━━━━━━━━━━━━━━━━━━━━━━\n🎻 Selamat menikmati sensasi mendengarkan musik di VC GROUP/ CHANNEL kamu dengan bot @ManMusicHelp4bot."
       HELP_MSG = [
         ".",
 f"""
 **Hi bertemu lagi dengan saya {PROJECT_NAME}
 
-⚪️ {PROJECT_NAME} bisa memutar musik baik itu di VC Group atau VC Channel
+⭕️ {PROJECT_NAME} bisa memutar musik baik itu di VC Group atau VC Channel
 
-⚪️ Nama Asisten >> @{ASSISTANT_NAME}\n\nKlik tombol dibawah untuk melihat intruksi lain**
-◎› Owner Bot >> @{SUPPORT_GROUP}
-◎› Owner Project >> @exKAMUUU
+⭕️ Nama Asisten >> @{ASSISTANT_NAME}\n\nKlik tombol dibawah untuk melihat intruksi lain**
+◎› Owner Bot >> @ManMusicHelp4bot
 """,
 
 f"""
@@ -74,7 +73,7 @@ __**Cmd player dan semua cmd lain kecuali**__ /play, /current __**dan**__ /playl
 f"""
 **◎› Putar Musik Di Channel 📮**
 
-⚪️ Hanya untuk admin grup tertaut:
+⭕️ Hanya untuk admin grup tertaut:
 
 • /cplay [song name] - putar lagu yang Anda minta
 • /cdplay [song name] - putar lagu yang Anda minta via deezer
@@ -90,7 +89,7 @@ f"""
 
 saluran Channel juga dapat digunakan sebagai pengganti c ( /cplay = /channelplay )
 
-⚪️ Jika Anda tidak suka bermain di grup tertaut:
+⭕️ Jika Anda tidak suka bermain di grup tertaut:
 
 1) Dapatkan ID saluran Anda.
 2) Buat grup dengan judul: Channel Music: your_channel_id
