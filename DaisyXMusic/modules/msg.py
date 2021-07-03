@@ -22,16 +22,16 @@ from DaisyXMusic.config import PROJECT_NAME
 from DaisyXMusic.config import SUPPORT_GROUP
 from DaisyXMusic.config import UPDATES_CHANNEL
 class Messages():
-      START_MSG = "**Hallo [{}](tg://user?id={})!**\n━━━━━━━━━━━━━━━━━━━━━━━━\n🤖 Saya adalah bot canggih yang dibuat untuk memutar musik di obrolan suara Grup & Saluran Channel Telegram.\n\n📝 Ketik /help untuk mendapat info dari saya.\n━━━━━━━━━━━━━━━━━━━━━━━━\n🎻 Selamat menikmati sensasi mendengarkan musik di VC GROUP/ CHANNEL kamu dengan bot @ManMusicHelp4bot."
+      START_MSG = "**Hallo [{}](tg://user?id={})!**\n━━━━━━━━━━━━━━━━━━━━━━━━\n🤖 Saya adalah bot canggih yang dibuat untuk memutar musik di obrolan suara Grup & Saluran Channel Telegram Kamu.\n\n━━━━━━━━━━━━━━━━━━━━━━━━\n❇️Selamat menikmati sensasi mendengarkan musik di VC GROUP/ CHANNEL kamu\n\n━━━━━━━━━━━━━━━━━━━━━━━━\n🔰 Ketik /help untuk mendapat info dari saya."
       HELP_MSG = [
         ".",
 f"""
 **Hi bertemu lagi dengan saya {PROJECT_NAME}
 
-⭕️ {PROJECT_NAME} bisa memutar musik baik itu di VC Group atau VC Channel
+⭕️ MANmusicBOT bisa memutar musik baik itu di VC Group atau VC Channel
 
 ⭕️ Nama Asisten >> @{ASSISTANT_NAME}\n\nKlik tombol dibawah untuk melihat intruksi lain**
-◎› Owner Bot >> @ManMusicHelp4bot
+◎› NAMA Bot ⬇️⬇️⬇️ [MANmusicBOT](https://t.me/ManMusicHelp4bot)
 """,
 
 f"""
