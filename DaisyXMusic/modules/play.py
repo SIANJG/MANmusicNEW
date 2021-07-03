@@ -1272,7 +1272,7 @@ async def lol_cb(b, cb):
         await cb.message.delete()
         await b.send_photo(chat_id,
             photo="final.png",
-            caption=f"#✨ Lagu permintaan dari{r_by.mention} sedang dalam <b>antrian</b> {position}!",
+            caption=f"✨ Permintaan lagu dari {r_by.mention} sedang dalam <b>antrian</b> {position}!",
             reply_markup=keyboard,
         )
         os.remove("final.png")
@@ -1294,7 +1294,6 @@ async def lol_cb(b, cb):
         await b.send_photo(chat_id,
             photo="final.png",
             reply_markup=keyboard,
-            caption=f"💡 <b>Status: Sedang Memutar<b/>\n🏷<b>Lagu :</b> {title}\n\n⏱ <b>Durasi :<b/b> {duration}\n🙌 **Atas permintaan :** {r_by.mention}\n✨Selamat mendengarkan✨",
-        )
+            caption=f"⏸ <b>Sedang memutar lagu atas permintaan <b/>{r_by.mention} \n⏱ <b>Durasi :<b/b> {duration}        )
         
         os.remove("final.png")
