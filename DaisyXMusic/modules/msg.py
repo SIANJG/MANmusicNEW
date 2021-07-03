@@ -21,12 +21,11 @@ from DaisyXMusic.config import PROJECT_NAME
 from DaisyXMusic.config import SUPPORT_GROUP
 from DaisyXMusic.config import UPDATES_CHANNEL
 class Messages():
-      START_MSG = "**👋Hallo [{}](tg://user?id={})**\nSaya adalah bot yang memungkinkan untuk memutar musik di grup anda, Klik tambahkan saya ke grup anda, dan jangan lupa juga untuk menambahkan asisten saya, selengkapnya di /help (https://t.me/ManMusicHelp4bot)
+      START_MSG = "**Hello 👋 [{}](tg://user?id={})!**\n\n🤖 I am an advanced bot created for playing music in the voice chats of Telegram Groups & Channels.\n\n✅ Send me /help for more info."
       HELP_MSG = [
         ".",
 f"""
-"**👋Hallo [{}](tg://user?id={})** Baca daftar perintah terlebih dahulu!\n\n (https://telegra.ph/Daftar-perintah-untuk-FeyyMusicBot-05-11)
-
+**Hey 👋 Welcome back to {PROJECT_NAME}
 
 """
       ]
