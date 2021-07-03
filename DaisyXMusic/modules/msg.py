@@ -21,11 +21,11 @@ from DaisyXMusic.config import PROJECT_NAME
 from DaisyXMusic.config import SUPPORT_GROUP
 from DaisyXMusic.config import UPDATES_CHANNEL
 class Messages():
-      START_MSG = "**👋Hallo [{}](tg://user?id={})**\n**Saya adalah bot yang memungkinkan untuk memutar musik di grup anda, Klik tambahkan saya ke grup anda, dan jangan lupa juga untuk menambahkan asisten saya, selengkapnya di** /help (https://t.me/ManMusicHelp4bot)
+      START_MSG = "**👋Hallo [{}](tg://user?id={})**\nSaya adalah bot yang memungkinkan untuk memutar musik di grup anda, Klik tambahkan saya ke grup anda, dan jangan lupa juga untuk menambahkan asisten saya, selengkapnya di /help (https://t.me/ManMusicHelp4bot)
       HELP_MSG = [
         ".",
 f"""
-**👋 Halo [{}](tg://user?id={})** **Baca daftar perintah terlebih dahulu!**\n\n(https://telegra.ph/Daftar-perintah-untuk-FeyyMusicBot-05-11)
+"**👋Hallo [{}](tg://user?id={})** Baca daftar perintah terlebih dahulu!\n\n (https://telegra.ph/Daftar-perintah-untuk-FeyyMusicBot-05-11)
 
 
 """
