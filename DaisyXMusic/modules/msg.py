@@ -16,7 +16,11 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import os
-from MightyMusic.config import ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,OWNER_USERNAME
+from DaisyXMusic.config import SOURCE_CODE
+from DaisyXMusic.config import ASSISTANT_NAME
+from DaisyXMusic.config import PROJECT_NAME
+from DaisyXMusic.config import SUPPORT_GROUP
+from DaisyXMusic.config import UPDATES_CHANNEL
 class Messages():
       START_MSG = "**Hallo [{}](tg://user?id={})!**\n━━━━━━━━━━━━━━━━━━━━━━━━\n📮 Saya adalah bot canggih yang dibuat untuk memutar musik di obrolan suara Grup & Saluran Channel Telegram.\n\n📝 Ketik /help untuk mendapat info dari saya.\n━━━━━━━━━━━━━━━━━━━━━━━━\n🎻 Selamat menikmati sensasi mendengarkan musik di VC GROUP/ CHANNEL kamu."
       HELP_MSG = [
@@ -27,7 +31,7 @@ f"""
 ⚪️ {PROJECT_NAME} bisa memutar musik baik itu di VC Group atau VC Channel
 
 ⚪️ Nama Asisten >> @{ASSISTANT_NAME}\n\nKlik tombol dibawah untuk melihat intruksi lain**
-◎› Owner Bot >> @{OWNER_USERNAME}
+◎› Owner Bot >> @{SUPPORT_GROUP}
 ◎› Owner Project >> @exKAMUUU
 """,
 
