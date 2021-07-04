@@ -46,7 +46,7 @@ def _start(client, message):
                         "💬 Support grup admin", url=f"https://t.me/{SUPPORT_GROUP}")
                 ],[
                     InlineKeyboardButton(
-                        "➕ Tambahkan asisten saya ke grup🦸‍♂", url=f"https://{SOURCE_CODE}")
+                        "🛠Bantuan", url=f"https://{SOURCE_CODE}")
                 ]
             ]
         ),
@@ -96,7 +96,7 @@ def help_answer(client, callback_query):
 def map(pos):
     if(pos==1):
         button = [
-            [InlineKeyboardButton(text = '▶️', callback_data = "help+2")]
+            [InlineKeyboardButton(text = '🙏TERIMAKASIH🙏', callback_data = "help+2")]
         ]
     elif(pos==len(tr.HELP_MSG)-1):
         url = f"https://t.me/{SUPPORT_GROUP}"
@@ -104,14 +104,14 @@ def map(pos):
             [InlineKeyboardButton("➕ Tambahkan saya ke grup 🙋‍♀️", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
             [InlineKeyboardButton(text = 'Support grup admin', url=f"https://t.me/{UPDATES_CHANNEL}"),
              InlineKeyboardButton(text = '🤡 Channel shitpost', url=f"https://t.me/{SUPPORT_GROUP}")],
-            [InlineKeyboardButton(text = '➕ Tambahkan asisten saya ke grup🦸‍♂', url=f"https://{SOURCE_CODE}")],
+            [InlineKeyboardButton(text = '🛠Bantuan', url=f"https://{SOURCE_CODE}")],
             [InlineKeyboardButton(text = '◀️', callback_data = f"help+{pos-1}")]
         ]
     else:
         button = [
             [
                 InlineKeyboardButton(text = '◀️', callback_data = f"help+{pos-1}"),
-                InlineKeyboardButton(text = '▶️', callback_data = f"help+{pos+1}")
+                InlineKeyboardButton(text = '🙏TERIMAKASIH🙏', callback_data = f"help+{pos+1}")
             ],
         ]
     return button
