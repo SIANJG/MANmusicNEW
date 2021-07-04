@@ -47,6 +47,8 @@ def _start(client, message):
                 ],[
                     InlineKeyboardButton(
                         "🛠Bantuan", url=f"https://{SOURCE_CODE}")
+                    )
                 ]
             ]
-        )
+        ),
+    )
