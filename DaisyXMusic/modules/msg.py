@@ -17,13 +17,13 @@
 import os
 from DaisyXMusic.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,UPDATES_CHANNEL
 class Messages():
-      START_MSG = "**👋Halo [{}](tg://user?id={})!** Saya adalah bot canggih yang dibuat untuk memutar musik di obrolan suara Grup & Saluran Channel Telegram.\nJangan lupa tambahan saya dan asisten saya ke dalam Grup anda/nKetik /help untuk melihat informasi lebih lanjut dari saya."
+      START_MSG = "**👋Halo [{}](tg://user?id={})!** Saya adalah bot canggih yang dibuat untuk memutar musik di obrolan suara.\nJangan lupa tambahan saya dan asisten saya ke dalam Grup anda\nKetik /help untuk melihat informasi lebih lanjut dari saya."
       HELP_MSG = [
         ".",
 f"""
-**Hai bertemu lagi dengan saya
-🔰 Saya bisa memutar musik baik itu di VC Group atau VC Channel
-🔰 Nama Asisten >> @{ASSISTANT_NAME}\n\nKlik tombol dibawah untuk melihat intruksi lain**
+**👋Halo bertemu lagi dengan saya
+✅ Saya bisa memutar musik baik itu di VC Group atau VC Channel
+✅ Nama Asisten >> @{ASSISTANT_NAME}\n\nKlik tombol dibawah untuk melihat intruksi lain**
 """,
 
 f"""
