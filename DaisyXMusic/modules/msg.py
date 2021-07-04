@@ -21,9 +21,9 @@ class Messages():
       HELP_MSG = [
         ".",
 f"""
-**🔰Baca daftar perintah terlebih dahulu🔰**
+**🔰Baca daftar perintah terlebih dahulu🔰
 [📝Klik disini](https://telegra.ph/Daftar-perintah-untuk-FeyyMusicBot-05-11)
-💬Atau hubungi Owner Project: [exKAMUUU](https://t.me/exKAMUUU)
+💬Atau hubungi Owner Project: [exKAMUUU](https://t.me/exKAMUUU)**
 
 """
       ]
