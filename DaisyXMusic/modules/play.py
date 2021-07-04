@@ -127,7 +127,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     font = ImageFont.truetype("etc/font.otf", 32)
     draw.text((205, 550), f"Judul: {title}", (255, 255, 255), font=font)
     draw.text((205, 590), f"Durasi: {duration}", (255, 255, 255), font=font)
-    draw.text((205, 630), f"Ditonton: {views}", (255, 255, 255), font=font)
+    draw.text((205, 630), f"Dilihat: {views}", (255, 255, 255), font=font)
     draw.text(
         (205, 670),
         f"Atas permintaan: {requested_by}",
@@ -458,7 +458,7 @@ async def play(_, message: Message):
     global useer
     if message.chat.id in DISABLED_GROUPS:
         return    
-    lel = await message.reply("🔄 <b>Processing</b>")
+    lel = await message.reply("🔄 <b>Proses</b>")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
 
@@ -476,24 +476,24 @@ async def play(_, message: Message):
             if administrator == message.from_user.id:
                 if message.chat.title.startswith("Channel Music: "):
                     await lel.edit(
-                        "<b>Remember to add helper to your channel</b>",
+                        "<b>Tambahkan bantuan ke grup</b>",
                     )
                     pass
                 try:
                     invitelink = await _.export_chat_invite_link(chid)
                 except:
                     await lel.edit(
-                        "<b>Add me as admin of yor group first</b>",
+                        "<b>Tambahkan saya menjadi admin</b>",
                     )
                     return
 
                 try:
                     await USER.join_chat(invitelink)
                     await USER.send_message(
-                        message.chat.id, "I joined this group for playing music in VC"
+                        message.chat.id, "Saya bergabung ke grup untuk memutar music"
                     )
                     await lel.edit(
-                        "<b>helper userbot joined your chat</b>",
+                        "<b>Bot bergabung ke dalam grup</b>",
                     )
 
                 except UserAlreadyParticipant:
@@ -509,7 +509,7 @@ async def play(_, message: Message):
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            f"<i> {user.first_name} Userbot not in this chat, Ask admin to send /play command for first time or add {user.first_name} manually</i>"
+            f"<i> {user.first_name} Userbot tidak ada dalam suara, Tanya admin kirim /play command untuk menambahkan {user.first_name} manual</i>"
         )
         return
     text_links=None
@@ -587,7 +587,7 @@ async def play(_, message: Message):
 
         except Exception as e:
             await lel.edit(
-                "Song not found.Try another song or maybe spell it properly."
+                "Lagu tidak ditemukan. Coba lagu lain atau mungkin mengejanya dengan benar."
             )
             print(str(e))
             return
@@ -1294,7 +1294,7 @@ async def lol_cb(b, cb):
         await b.send_photo(chat_id,
             photo="final.png",
             reply_markup=keyboard,
-            caption=f"✳️Sedang memutar lagu✳️\n\n👤Atas permintaan : {r_by.mention}\n⏱Durasi : {duration}\nEnjoy🤟"
+            caption=f"⏸Sedang memutar\n╚👤Atas permintaan : {r_by.mention}\n╚⏱Durasi : {duration}\n╚👁️Dilihat : {views} "
         )
         
         os.remove("final.png")
