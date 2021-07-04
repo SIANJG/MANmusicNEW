@@ -17,15 +17,13 @@
 import os
 from DaisyXMusic.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,UPDATES_CHANNEL
 class Messages():
-      START_MSG = "**👋Halo [{}](tg://user?id={})!** Saya adalah bot canggih yang dibuat untuk memutar musik di obrolan suara.\nJangan lupa tambahan saya dan asisten saya ke dalam grup anda.\nKlik /help untuk melihat informasi lebih lanjut dari saya\n\n[MANmusicBOT](https://t.me/ManMusicHelp4bot)."
+      START_MSG = "**👋Halo [{}](tg://user?id={})!** Saya adalah bot canggih yang dibuat untuk memutar musik di obrolan suara.\nJangan lupa tambahan saya dan asisten saya ke dalam grup anda.\nKlik /help untuk melihat informasi lebih lanjut dari saya[ ](https://t.me/ManMusicHelp4bot)."
       HELP_MSG = [
         ".",
 f"""
 **🔰Baca daftar perintah terlebih dahulu🔰
 [📝Klik disini](https://telegra.ph/Daftar-perintah-untuk-FeyyMusicBot-05-11)
 💬Atau hubungi Owner Project: [exKAMUUU](https://t.me/exKAMUUU)**
-
-        ".",
       ]
 
-# Editor by Creator And Contributor
+#Editor by Creator And Contributor
