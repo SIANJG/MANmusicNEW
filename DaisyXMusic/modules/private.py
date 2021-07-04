@@ -96,7 +96,7 @@ def help_answer(client, callback_query):
 def map(pos):
     if(pos==1):
         button = [
-            [InlineKeyboardButton(text = '🙏TERIMAKASIH🙏', callback_data = "help+2")]
+            [InlineKeyboardButton(text = '🙏', callback_data = "help+2")]
         ]
     elif(pos==len(tr.HELP_MSG)-1):
         url = f"https://t.me/{SUPPORT_GROUP}"
@@ -111,7 +111,7 @@ def map(pos):
         button = [
             [
                 InlineKeyboardButton(text = '◀️', callback_data = f"help+{pos-1}"),
-                InlineKeyboardButton(text = '🙏TERIMAKASIH🙏', callback_data = f"help+{pos+1}")
+                InlineKeyboardButton(text = '🙏', callback_data = f"help+{pos+1}")
             ],
         ]
     return button
