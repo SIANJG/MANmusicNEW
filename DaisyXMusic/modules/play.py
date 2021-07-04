@@ -633,7 +633,7 @@ async def play(_, message: Message):
           await lel.edit("Give me something to play")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
-            toxxt = "**✳️ Pilih musik yang ingin kamu putar ✳️**\n\n"
+            toxxt = "**⚡️ Pilih musik yang ingin kamu putar ⚡️**\n\n"
             j = 0
             useer=user_name
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣",]
@@ -723,7 +723,7 @@ async def play(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"#⃣ Your requested song <b>queued</b> at position {position}!",
+            caption=f"⚡️Permintaan lagu dari {r_by.mention}\nSedang dalam <b>antrian</b> ke {position}!",
             reply_markup=keyboard,
         )
         os.remove("final.png")
@@ -881,7 +881,7 @@ async def ytplay(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"🔂Musik di tambahkan ke dalam <b>antrian</b> {position}!",
+            caption=f"⚡️Permintaan lagu dari {r_by.mention}\nSedang dalam <b>antrian</b> ke {position}!",
             reply_markup=keyboard,
         )
         os.remove("final.png")
@@ -1206,9 +1206,9 @@ async def lol_cb(b, cb):
         return
     useer_id = int(useer_id)
     if cb.from_user.id != useer_id:
-        await cb.answer("You ain't the person who requested to play the song!", show_alert=True)
+        await cb.answer("Anda bukan orang yang meminta untuk memutar lagu!", show_alert=True)
         return
-    await cb.message.edit("Hang On... Player Starting")
+    await cb.message.edit("Tunggu... Akan memutar")
     x=int(x)
     try:
         useer_name = cb.message.reply_to_message.from_user.first_name
@@ -1229,7 +1229,7 @@ async def lol_cb(b, cb):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
         if (dur / 60) > DURATION_LIMIT:
-             await cb.message.edit(f"Music longer than {DURATION_LIMIT}min are not allowed to play")
+             await cb.message.edit(f"Musik lebih lama dari {DURATION_LIMIT} menit tidak diizinkan untuk diputar")
              return
     except:
         pass
@@ -1272,7 +1272,7 @@ async def lol_cb(b, cb):
         await cb.message.delete()
         await b.send_photo(chat_id,
             photo="final.png",
-            caption=f"✨Permintaan lagu dari {r_by.mention} sedang dalam <b>antrian</b> ke {position}!",
+            caption=f"⚡️Permintaan lagu dari {r_by.mention}\nSedang dalam <b>antrian</b> ke {position}!",
             reply_markup=keyboard,
         )
         os.remove("final.png")
