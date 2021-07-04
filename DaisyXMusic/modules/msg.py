@@ -1,4 +1,3 @@
- 
 #MANmusicBOT (Telegram bot project )
 # Copyright (C) 2021  exKAMUUU
 
@@ -18,12 +17,11 @@
 import os
 from DaisyXMusic.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,UPDATES_CHANNEL
 class Messages():
-      START_MSG = "**👋Halo [{}](tg://user?id={})!** Saya adalah bot canggih yang dibuat untuk memutar musik di obrolan suara.\nJangan lupa tambahan saya dan asisten saya ke dalam grup anda.\nUntuk nformasi lebih lanjut klik /help[.](https://t.me/ManMusicHelp4bot)."
+      START_MSG = "**👋Halo [{}](tg://user?id={})** Saya adalah bot canggih yang dibuat untuk memutar musik di obrolan suara.\nJangan lupa tambahan saya dan **asisten** saya ke dalam grup anda.\nUntuk nformasi lebih lanjut klik **bantuan** dibawah[  ](https://t.me/ManMusicHelp4bot)."
       HELP_MSG = [
         ".",
 f"""
 **🔰Baca daftar perintah terlebih dahulu🔰
-[📝Klik disini](https://telegra.ph/Daftar-perintah-untuk-FeyyMusicBot-05-11)
 💬Atau hubungi Owner Project: [exKAMUUU](https://t.me/exKAMUUU)**
 """
       ]
