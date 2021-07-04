@@ -25,5 +25,3 @@ f"""
 [📝Klik disini](https://telegra.ph/Daftar-perintah-untuk-FeyyMusicBot-05-11)
 💬Atau hubungi Owner Project: [exKAMUUU](https://t.me/exKAMUUU)**
       ]
-
-#Editor by Creator And Contributor
