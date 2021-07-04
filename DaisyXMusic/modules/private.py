@@ -46,7 +46,7 @@ def _start(client, message):
                         "💬 Support grup admin", url=f"https://t.me/{SUPPORT_GROUP}")
                 ],[
                     InlineKeyboardButton(
-                        "🛠 Source Code 🛠", url=f"https://{SOURCE_CODE}")
+                        "➕ Tambahkan asisten saya ke grup🦸‍♂", url=f"https://{SOURCE_CODE}")
                 ]
             ]
         ),
@@ -104,7 +104,7 @@ def map(pos):
             [InlineKeyboardButton("➕ Tambahkan saya ke grup 🙋‍♀️", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
             [InlineKeyboardButton(text = 'Support grup admin', url=f"https://t.me/{UPDATES_CHANNEL}"),
              InlineKeyboardButton(text = '🤡 Channel shitpost', url=f"https://t.me/{SUPPORT_GROUP}")],
-            [InlineKeyboardButton(text = '🛠 Source Code 🛠', url=f"https://{SOURCE_CODE}")],
+            [InlineKeyboardButton(text = '➕ Tambahkan asisten saya ke grup🦸‍♂', url=f"https://{SOURCE_CODE}")],
             [InlineKeyboardButton(text = '◀️', callback_data = f"help+{pos-1}")]
         ]
     else:
@@ -124,7 +124,7 @@ async def ghelp(_, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "🟡 Click here for help 🟡", url=f"https://t.me/{BOT_USERNAME}?start"
+                        "🟡 Klik disini untuk bantuan 🟡", url=f"https://t.me/{BOT_USERNAME}?start"
                     )
                 ]
             ]
