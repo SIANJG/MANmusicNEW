@@ -33,7 +33,7 @@ async def addchannel(client, message):
         invitelink = await client.export_chat_invite_link(chid)
     except:
         await message.reply_text(
-            "<b>Add me as admin of yor group first</b>",
+            "<b>Tambahkan saya sebagai admin grup Anda terlebih dahulu</b>",
         )
         return
 
@@ -52,12 +52,12 @@ async def addchannel(client, message):
     except Exception as e:
         print(e)
         await message.reply_text(
-            f"<b>🛑 Flood Wait Error 🛑 \n User {user.first_name} couldn't join your group due to heavy join requests for userbot! Make sure user is not banned in group."
-            "\n\nOr manually add @DaisyXhelper to your Group and try again</b>",
+            f"<b>🛑 Ada kesalahan tunggu...🛑 \n Pengguna {user.first_name} tidak dapat bergabung dengan grup Anda karena banyaknya permintaan bergabung untuk userbot! Pastikan pengguna tidak dilarang di grup."
+            "\n\nAtau tambahkan @Xmusichelper secara manual ke Grup Anda dan coba lagi</b>",
         )
         return
     await message.reply_text(
-        "<b>helper userbot joined your chat</b>",
+        "<b>Asisten sudah ada di obrolan Anda</b>",
     )
 
 
@@ -68,8 +68,8 @@ async def rem(USER, message):
         await USER.leave_chat(message.chat.id)
     except:
         await message.reply_text(
-            f"<b>User couldn't leave your group! May be floodwaits."
-            "\n\nOr manually kick me from to your Group</b>",
+            f"<b>Pengguna tidak dapat meninggalkan grup Anda! Mungkin menunggu spam."
+            "\n\Atau secara manual mengeluarkan saya dari ke Grup Anda</b>",
         )
         return
     
@@ -107,7 +107,7 @@ async def addcchannel(client, message):
         invitelink = await client.export_chat_invite_link(chid)
     except:
         await message.reply_text(
-            "<b>Add me as admin of yor channel first</b>",
+            "<b>tambahkan saya menjadi admin grup dahulu</b>",
         )
         return
 
