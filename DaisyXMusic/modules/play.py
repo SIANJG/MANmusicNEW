@@ -509,7 +509,7 @@ async def play(_, message: Message):
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            f"<i> {user.first_name} Userbot tidak ada dalam suara, Tanya admin kirim /play command untuk menambahkan {user.first_name} manual</i>"
+            f"<i> ⚠️ {user.first_name} / Asisten MANmusicBOT tidak ada dalam grup :( , kakak Admin grup ini harus kirim username grup ini ke @Xmusichelper untuk menambahkan Asisten secara manual ya kak</i>"
         )
         return
     text_links=None
