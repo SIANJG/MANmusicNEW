@@ -17,7 +17,7 @@
 import os
 from DaisyXMusic.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,UPDATES_CHANNEL
 class Messages():
-      START_MSG = "**👋Halo [{}](tg://user?id={})**\n Saya adalah bot canggih yang dibuat untuk memutar musik di obrolan suara.\nJangan lupa tambahan saya dan **Asisten** saya ke dalam grup anda.\nUntuk nformasi lebih lanjut klik tombol **bantuan** dibawah[  ](https://t.me/https://t.me/Xmusichelper)."
+      START_MSG = "**👋Halo [{}](tg://user?id={})\n Saya adalah bot canggih yang dibuat untuk memutar musik di obrolan suara.\nJangan lupa tambahan saya dan **Asisten** saya ke dalam grup anda.\nUntuk nformasi lebih lanjut klik tombol bantuan dibawah[  ](https://t.me/ManMusicHelp4bot)**"
       HELP_MSG = [
         ".",
 f"""
