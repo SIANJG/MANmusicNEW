@@ -34,7 +34,7 @@ async def pmPermit(client: USER, message: Message):
                 return
             await USER.send_message(
                 message.chat.id,
-                "Hi there, This is a music assistant service .\n\n ❗️ Rules:\n   - No chatting allowed\n   - No spam allowed \n\n 👉 **SEND GROUP INVITE LINK OR USERNAME IF USERBOT CAN'T JOIN YOUR GROUP.**\n\n ⚠️ Disclamer: If you are sending a message here it means admin will see your message and join chat\n    - Don't add this user to secret groups.\n   - Don't Share private info here\n\n",
+                "Hal, Ini adalah layanan asisten MANmusicBOT 👩‍🔧 .\n\n ❗️ Aturan:\n - Dilarang spam ke sini ya kak 🙅‍♀ \n\n 👉 **KIRIM TAUTAN UNDANGAN GRUP ATAU NAMA GRUP JIKA ASISTEN INI GAK BISA BERGABUNG DENGAN GRUP KAMU DISINI KAK .**\n\n 👉Contoh: masukan text berikut ke dalam chat ini kak **https://t.me/nama grup kakak**  n\n\⚠️ Disclaimer: Kak jangan masukin link grup privasi disini kak, pokoknya kalau link chat atau data yg dianggep pribadi jangan ya pokonya kak 🙅‍♀\n\n Kalau mau tanya-tanya tentang bot ini bisa langsung chat dg pemilik bot ini @playplaywithmee .\n\n Terima kasih & stay safe selalu kak👩‍⚕\n\n",
             )
             return
 
