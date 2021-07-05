@@ -631,10 +631,12 @@ async def play(_, message: Message):
         try:
           results = YoutubeSearch(query, max_results=5).to_dict()
         except:
+          await b.send_photo(chat_id,
           await lel.edit("Beri aku sesuatu untuk aku putar")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
-            toxxt = "("BOT_IMG")\n\n"
+            photo="final.png",
+            toxxt = "LAGI MAINTSNCE\n\n"
             j = 0
             useer=user_name
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣",]
