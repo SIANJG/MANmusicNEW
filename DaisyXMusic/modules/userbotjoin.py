@@ -33,31 +33,31 @@ async def addchannel(client, message):
         invitelink = await client.export_chat_invite_link(chid)
     except:
         await message.reply_text(
-            "<b>Tambahkan saya sebagai admin grup Anda terlebih dahulu</b>",
+            "<b>Tambahkan saya sebagai admin grup terlebih dahulu kak 🙇‍♀</b>",
         )
         return
 
     try:
         user = await USER.get_me()
     except:
-        user.first_name = "DaisyMusic"
+        user.first_name = "MANmusicBOT"
 
     try:
         await USER.join_chat(invitelink)
-        await USER.send_message(message.chat.id, "I joined here as you requested")
+        await USER.send_message(message.chat.id, "Saya bergabung ke grup, atas permintaan kakak 🙋‍♀")
     except UserAlreadyParticipant:
         await message.reply_text(
-            "<b>helper already in your chat</b>",
+            "<b>Yeyy Asisten sudah siap di dalam grup 🙋‍♀</b>",
         )
     except Exception as e:
         print(e)
         await message.reply_text(
-            f"<b>🛑 Ada kesalahan tunggu...🛑 \n Pengguna {user.first_name} tidak dapat bergabung dengan grup Anda karena banyaknya permintaan bergabung untuk userbot! Pastikan pengguna tidak dilarang di grup."
-            "\n\nAtau tambahkan @Xmusichelper secara manual ke Grup Anda dan coba lagi</b>",
+            f"<b>🤦‍♀ Ada kesalahan kak tunggu yaa... \n Pengguna {user.first_name} tidak dapat bergabung dengan grup Anda karena banyaknya permintaan bergabung untuk userbot! Pastikan pengguna tidak dilarang di grup."
+            "\n\nAtau tambahkan @Xmusichelper secara manual ke Grup dan coba lagi, jangan panik ya hehee</b>",
         )
         return
     await message.reply_text(
-        "<b>Asisten sudah ada di obrolan Anda</b>",
+        "<b>Asisten sudah ada di obrolan Kamu 🙋‍♀</b>",
     )
 
 
@@ -68,7 +68,7 @@ async def rem(USER, message):
         await USER.leave_chat(message.chat.id)
     except:
         await message.reply_text(
-            f"<b>Pengguna tidak dapat meninggalkan grup Anda! Mungkin menunggu spam."
+            f"<b>yahh kak sepertinya saya tidak dapat meninggalkan grup! Mungkin menunggu giliran kak."
             "\n\Atau secara manual mengeluarkan saya dari ke Grup Anda</b>",
         )
         return
@@ -78,7 +78,7 @@ async def bye(client, message):
     if message.from_user.id in SUDO_USERS:
         left=0
         failed=0
-        lol = await message.reply("Assistant Leaving all chats")
+        lol = await message.reply("🙅‍♀ Asisten Meninggalkan semua obrolan babai")
         async for dialog in USER.iter_dialogs():
             try:
                 await USER.leave_chat(dialog.chat.id)
@@ -100,38 +100,38 @@ async def addcchannel(client, message):
       conid = conchat.linked_chat.id
       chid = conid
     except:
-      await message.reply("Is chat even linked")
+      await message.reply("Apakah obrolan bahkan terhubung?")
       return    
     chat_id = chid
     try:
         invitelink = await client.export_chat_invite_link(chid)
     except:
         await message.reply_text(
-            "<b>tambahkan saya menjadi admin grup dahulu</b>",
+            "<b>tambahkan saya menjadi admin grup dahulu kak 🙇‍♀</b>",
         )
         return
 
     try:
         user = await USER.get_me()
     except:
-        user.first_name = "DaisyMusic"
+        user.first_name = "MANmusicBOT"
 
     try:
         await USER.join_chat(invitelink)
-        await USER.send_message(message.chat.id, "I joined here as you requested")
+        await USER.send_message(message.chat.id, "Saya bergabung ke grup, atas permintaan kakak 🙋‍♀")
     except UserAlreadyParticipant:
         await message.reply_text(
-            "<b>helper already in your channel</b>",
+            "<b>Saya bergabung ke grup, atas permintaan kakak 🙋‍♀</b>",
         )
         return
     except Exception as e:
         print(e)
         await message.reply_text(
-            f"<b>🛑 Flood Wait Error 🛑 \n User {user.first_name} couldn't join your channel due to heavy join requests for userbot! Make sure user is not banned in channel."
-            "\n\nOr manually add @DaisyXhelper to your Group and try again</b>",
+            f"<b>🤦‍♀ Ada kesalahan kak tunggu yaa...\nPengguna {user.first_name} tidak dapat bergabung dengan grup Anda karena banyaknya permintaan bergabung untuk userbot! Pastikan pengguna tidak dilarang di grup."
+            "\n\nAtau tambahkan @Xmusichelper secara manual ke Grup dan coba lagi, jangan panik ya hehee</b>",
         )
         return
     await message.reply_text(
-        "<b>helper userbot joined your channel</b>",
+        "<b>Yeyy Asisten sudah siap di dalam grup 🙋‍♀</b>",
     )
     
