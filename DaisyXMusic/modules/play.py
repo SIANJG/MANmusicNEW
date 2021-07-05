@@ -633,7 +633,7 @@ async def play(_, message: Message):
           await lel.edit("Beri aku sesuatu untuk aku putar")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
-            toxxt = "**⚡️ PILIH MUSIK YANG INGIN KAMU PUTAR⚡️**\n\n"
+            toxxt = "https://telegra.ph/file/f6086f8909fbfeb0844f2.png\n\n"
             j = 0
             useer=user_name
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣",]
