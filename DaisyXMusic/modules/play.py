@@ -173,13 +173,13 @@ async def playlist(client, message):
 def updated_stats(chat, queue, vol=100):
     if chat.id in callsmusic.active_chats:
         # if chat.id in active_chats:
-        stats = "Settings of **{}**".format(chat.title)
+        stats = "Seting dari grup **{}**".format(chat.title)
         if len(que) > 0:
             stats += "\n\n"
             stats += "Volume : {}%\n".format(vol)
-            stats += "Songs in queue : `{}`\n".format(len(que))
-            stats += "Now Playing : **{}**\n".format(queue[0][0])
-            stats += "Requested by : {}".format(queue[0][1].mention)
+            stats += "Antrian : `{}`\n".format(len(que))
+            stats += "Sedang memutar : **{}**\n".format(queue[0][0])
+            stats += "Atas permintaan : {}".format(queue[0][1].mention)
     else:
         stats = None
     return stats
@@ -216,7 +216,7 @@ async def ee(client, message):
     if stats:
         await message.reply(stats)
     else:
-        await message.reply("TIDAK ADA VOICE CHAT AKTIV DI SINI")
+        await message.reply("TIDAK ADA OBROLAN SUARA AKTIF")
 
 
 @Client.on_message(filters.command("player") & filters.group & ~filters.edited)
@@ -237,7 +237,7 @@ async def settings(client, message):
         else:
             await message.reply(stats, reply_markup=r_ply("play"))
     else:
-        await message.reply("No VC instances running in this chat")
+        await message.reply("Tidak ada obrolan suars disini")
 
 
 @Client.on_message(
@@ -258,9 +258,9 @@ async def hfmm(_, message):
     status = message.text.split(None, 1)[1]
     message.chat.id
     if status == "ON" or status == "on" or status == "On":
-        lel = await message.reply("`Processing...`")
+        lel = await message.reply("`Memperosess...`")
         if not message.chat.id in DISABLED_GROUPS:
-            await lel.edit("Music Player Already Activated In This Chat")
+            await lel.edit("Music Player Sudah Siap disini")
             return
         DISABLED_GROUPS.remove(message.chat.id)
         await lel.edit(
@@ -300,18 +300,18 @@ async def p_cb(b, cb):
             temp.append(t)
         now_playing = temp[0][0]
         by = temp[0][1].mention(style="md")
-        msg = "<b>Now Playing</b> in {}".format(cb.message.chat.title)
+        msg = "<b>Sedang Memutar</b> in {}".format(cb.message.chat.title)
         msg += "\n- " + now_playing
-        msg += "\n- Req by " + by
+        msg += "\n- Permintaan" + by
         temp.pop(0)
         if temp:
             msg += "\n\n"
-            msg += "**Queue**"
+            msg += "**Antrian**"
             for song in temp:
                 name = song[0]
                 usr = song[1].mention(style="md")
                 msg += f"\n- {name}"
-                msg += f"\n- Req by {usr}\n"
+                msg += f"\n- Permintaan {usr}\n"
         await cb.message.edit(msg)
 
 
@@ -630,10 +630,10 @@ async def play(_, message: Message):
         try:
           results = YoutubeSearch(query, max_results=5).to_dict()
         except:
-          await lel.edit("Give me something to play")
+          await lel.edit("Beri aku sesuatu untuk aku putar")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
-            toxxt = "**⚡️ Pilih musik yang ingin kamu putar ⚡️**\n\n"
+            toxxt = "**⚡️ PILIH MUSIK YANG INGIN KAMU PUTAR⚡️**\n\n"
             j = 0
             useer=user_name
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣",]
@@ -664,7 +664,7 @@ async def play(_, message: Message):
             return
             # Returning to pornhub
         except:
-            await lel.edit("No Enough results to choose.. Starting direct play..")
+            await lel.edit("Tidak ada lagu untuk dipilih.. Saya putar random aja deh..")
                         
             # print(results)
             try:
@@ -740,7 +740,7 @@ async def play(_, message: Message):
         try:
             await callsmusic.set_stream(chat_id, file_path)
         except:
-            message.reply("Group Call is not connected or I can't join it")
+            message.reply("Panggilan Grup tidak tersambung atau saya tidak dapat bergabung")
             return
         await message.reply_photo(
             photo="final.png",
