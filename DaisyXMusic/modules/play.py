@@ -723,7 +723,7 @@ async def play(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"⚡️Permintaan lagu dari {r_by.mention}\nSedang dalam <b>antrian</b> ke {position}!",
+            caption=f"**🏷Permintaan lagu dari: <i>{r_by.mention}</i>**\nSedang dalam <i>antrian</i> ke **#{position}**\n<i>Mohon di tunggu..💤</i>",
             reply_markup=keyboard,
         )
         os.remove("final.png")
@@ -881,7 +881,7 @@ async def ytplay(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"⚡️Permintaan lagu dari {r_by.mention}\nSedang dalam <b>antrian</b> ke {position}!",
+            caption=f"**🏷Permintaan lagu dari: <i>{r_by.mention}</i>**\nSedang dalam <i>antrian</i> ke **#{position}**\n<i>Mohon di tunggu..💤</i>",
             reply_markup=keyboard,
         )
         os.remove("final.png")
@@ -1272,7 +1272,7 @@ async def lol_cb(b, cb):
         await cb.message.delete()
         await b.send_photo(chat_id,
             photo="final.png",
-            caption=f"<p>✅ Permintaan lagu dari {r_by.mention}\nSedang dalam <i>antrian</i> ke #️⃣**{position}**\nMohon di tunggu ...</p>",
+            caption=f"**🏷Permintaan lagu dari: <i>{r_by.mention}</i>**\nSedang dalam <i>antrian</i> ke **#{position}**\n<i>Mohon di tunggu..💤</i>",
             reply_markup=keyboard,
         )
         os.remove("final.png")
@@ -1294,7 +1294,7 @@ async def lol_cb(b, cb):
         await b.send_photo(chat_id,
             photo="final.png",
             reply_markup=keyboard,
-            caption=f"<p>⚡️Sedang memutar musik</p>**\n╚👤Atas permintaan : <i>{r_by.mention}</i>\n╚⏱Durasi : <i>{duration}</i>\n╚👁️Dilihat : <i>{views}<i/> "
+            caption=f"**<p>⚡️Sedang memutar musik</p>**\n╚👤Atas permintaan : <i>{r_by.mention}</i>\n╚⏱Durasi : <i>{duration}</i>\n╚👁️Dilihat : <i>{views}<i/> "
         )
         
         os.remove("final.png")
