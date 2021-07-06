@@ -624,7 +624,7 @@ async def play(_, message: Message):
         for i in message.command[1:]:
             query += " " + str(i)
         print(query)
-        await lel.edit("⏳ **Sedang diproses...**")
+        await lel.edit("⏳ <i>Sedang diproses...</i>")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         
         try:
@@ -633,7 +633,7 @@ async def play(_, message: Message):
           await lel.edit("Beri aku sesuatu untuk aku putar")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
-            toxxt = "**⚡️ PILIH MUSIK YANG INGIN KAMU PUTAR⚡️**\n\n"
+            toxxt = "**⚡️PILIH MUSIK YANG INGIN KAMU PUTAR⚡️**\n\n"
             j = 0
             useer=user_name
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣",]
@@ -680,7 +680,7 @@ async def play(_, message: Message):
 
             except Exception as e:
                 await lel.edit(
-                    "**<i>⚠️Lagu tidak dapat ditemukan...\nCoba lagu lain atau mungkin coba menulis info lagu dengan benar ❗️</i>**"
+                    "<i>⚠️Lagu tidak dapat ditemukan...\nCoba lagu lain atau mungkin coba menulis **info lagu** dengan benar ❗️</i>"
                 )
                 print(str(e))
                 return
@@ -812,7 +812,7 @@ async def ytplay(_, message: Message):
             f"<i> {user.first_name} Userbot not in this chat, Ask admin to send /play command for first time or add {user.first_name} manually</i>"
         )
         return
-    await lel.edit("🔎 <i>Sedang dicari...</i>")
+    await lel.edit("🔎 <i>Sedang mencari...</i>")
     user_id = message.from_user.id
     user_name = message.from_user.first_name
      
@@ -821,7 +821,7 @@ async def ytplay(_, message: Message):
     for i in message.command[1:]:
         query += " " + str(i)
     print(query)
-    await lel.edit("⏳ <i>proses</i>")
+    await lel.edit("⏳ <i>Proses</i>")
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -838,7 +838,7 @@ async def ytplay(_, message: Message):
 
     except Exception as e:
         await lel.edit(
-            "<i>⚠️Lagu tidak dapat ditemukan...\nCoba lagu lain atau mungkin coba menulis info lagu dengan benar ❗️</i>"
+            "<i>⚠️ Lagu tidak dapat ditemukan...\nCoba lagu lain atau mungkin coba menulis **info lagu** dengan benar ❗️</i>"
         )
         print(str(e))
         return
