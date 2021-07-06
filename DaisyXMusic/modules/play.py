@@ -1202,13 +1202,13 @@ async def lol_cb(b, cb):
     try:
         x,query,useer_id = typed_.split("|")      
     except:
-        await cb.message.edit("Song Not Found")
+        await cb.message.edit("**Lagu tidak ditemukan 🤦‍♀**")
         return
     useer_id = int(useer_id)
     if cb.from_user.id != useer_id:
         await cb.answer("Anda bukan orang yang meminta untuk memutar lagu!", show_alert=True)
         return
-    await cb.message.edit("Tunggu... Akan memutar")
+    await cb.message.edit("**Tunggu...\nMusic akan diputar🚀**")
     x=int(x)
     try:
         useer_name = cb.message.reply_to_message.from_user.first_name
@@ -1294,7 +1294,7 @@ async def lol_cb(b, cb):
         await b.send_photo(chat_id,
             photo="final.png",
             reply_markup=keyboard,
-            caption=f"⚡️Sedang memutar\n╚👤Atas permintaan : {r_by.mention}\n╚⏱Durasi : {duration}\n╚👁️Dilihat : {views} "
+            caption=f"**⚡️Sedang memutar musik**\n╚👤Atas permintaan : {r_by.mention}\n╚⏱Durasi : {duration}\n╚👁️Dilihat : {views} "
         )
         
         os.remove("final.png")
