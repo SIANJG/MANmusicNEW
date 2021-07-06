@@ -838,8 +838,7 @@ async def ytplay(_, message: Message):
 
     except Exception as e:
         await lel.edit(
-            "⚠️Lagu tidak ditemukan...
-\nCoba lagu lain atau mungkin coba menulis info lagu dengan benar ❗️."
+            "⚠️Lagu tidak ditemukan...\nCoba lagu lain atau mungkin coba menulis info lagu dengan benar ❗️."
         )
         print(str(e))
         return
