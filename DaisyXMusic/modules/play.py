@@ -300,18 +300,18 @@ async def p_cb(b, cb):
             temp.append(t)
         now_playing = temp[0][0]
         by = temp[0][1].mention(style="md")
-        msg = "<b>Sedang Memutar</b> in {}".format(cb.message.chat.title)
+        msg = "<b>⚡️Sedang Memutar</b> in {}".format(cb.message.chat.title)
         msg += "\n- " + now_playing
-        msg += "\n- Permintaan" + by
+        msg += "\n- 👤Atas permintaan" + by
         temp.pop(0)
         if temp:
             msg += "\n\n"
-            msg += "**Antrian**"
+            msg += "**💤Antrian**"
             for song in temp:
                 name = song[0]
                 usr = song[1].mention(style="md")
                 msg += f"\n- {name}"
-                msg += f"\n- Permintaan {usr}\n"
+                msg += f"\n- 👤Atas permintaan {usr}\n"
         await cb.message.edit(msg)
 
 
@@ -373,7 +373,7 @@ async def m_cb(b, cb):
         temp.pop(0)
         if temp:
             msg += "\n\n"
-            msg += "**Queue**"
+            msg += "**💤Antrian**"
             for song in temp:
                 name = song[0]
                 usr = song[1].mention(style="md")
@@ -458,7 +458,7 @@ async def play(_, message: Message):
     global useer
     if message.chat.id in DISABLED_GROUPS:
         return    
-    lel = await message.reply("♻️ <b>Proses pencarian...</b>")
+    lel = await message.reply("♻️<i>Proses pencarian...</i>")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
 
@@ -513,7 +513,7 @@ async def play(_, message: Message):
         )
         return
     text_links=None
-    await lel.edit("🔎 <b>Sedang dicari...</b>")
+    await lel.edit("🔎 <i>Sedang mencari lagu...</i>")
     if message.reply_to_message:
         if message.reply_to_message.audio:
             pass
@@ -723,7 +723,7 @@ async def play(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"**🏷Permintaan lagu dari: <i>{r_by.mention}</i>**\nSedang dalam <i>antrian</i> ke **#{position}**\n<i>Mohon di tunggu..💤</i>",
+            caption=f"**🏷Permintaan lagu dari: <i>{r_by.mention}</i>**\nSedang dalam **<i>antrian</i>** ke **#{position}**\n<i>Mohon di tunggu..💤</i>",
             reply_markup=keyboard,
         )
         os.remove("final.png")
@@ -758,7 +758,7 @@ async def ytplay(_, message: Message):
     global que
     if message.chat.id in DISABLED_GROUPS:
         return
-    lel = await message.reply("🔄 <b>Memperoses...</b>")
+    lel = await message.reply("🔄 <i>Memperoses...</i>")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
 
@@ -812,7 +812,7 @@ async def ytplay(_, message: Message):
             f"<i> {user.first_name} Userbot not in this chat, Ask admin to send /play command for first time or add {user.first_name} manually</i>"
         )
         return
-    await lel.edit("🔎 <b>Sedang dicari...</b>")
+    await lel.edit("🔎 <i>Sedang dicari...</i>")
     user_id = message.from_user.id
     user_name = message.from_user.first_name
      
@@ -821,7 +821,7 @@ async def ytplay(_, message: Message):
     for i in message.command[1:]:
         query += " " + str(i)
     print(query)
-    await lel.edit("⏳ <b>proses</b>")
+    await lel.edit("⏳ <i>proses</i>")
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -915,7 +915,7 @@ async def deezer(client: Client, message_: Message):
     if message_.chat.id in DISABLED_GROUPS:
         return
     global que
-    lel = await message_.reply("🔄 <b>Memperoses</b>")
+    lel = await message_.reply("🔄 <i>Memperoses</i>")
     administrators = await get_administrators(message_.chat)
     chid = message_.chat.id
     try:
