@@ -146,7 +146,7 @@ async def playlist(client, message):
         return    
     queue = que.get(message.chat.id)
     if not queue:
-        await message.reply_text("Player is idle")
+        await message.reply_text("💡Sedang tidak ada pemutaran music")
     temp = []
     for t in queue:
         temp.append(t)
@@ -294,7 +294,7 @@ async def p_cb(b, cb):
     if type_ == "playlist":
         queue = que.get(cb.message.chat.id)
         if not queue:
-            await cb.message.edit("Player is idle")
+            await cb.message.edit("💡Sedang tidak ada pemutaran music")
         temp = []
         for t in queue:
             temp.append(t)
@@ -361,7 +361,7 @@ async def m_cb(b, cb):
     elif type_ == "playlist":
         queue = que.get(cb.message.chat.id)
         if not queue:
-            await cb.message.edit("Player is idle")
+            await cb.message.edit("💡Sedang tidak ada pemutaran music")
         temp = []
         for t in queue:
             temp.append(t)
@@ -428,7 +428,7 @@ async def m_cb(b, cb):
             queues.task_done(chet_id)
             if queues.is_empty(chet_id):
                 callsmusic.stop(chet_id)
-                await cb.message.edit("- No More Playlist..\n- Leaving VC!")
+                await cb.message.edit("- Tidak ada daftar putar..\n- Keluar voice chat!")
             else:
                 await callsmusic.set_stream(
                     chet_id, queues.get(chet_id)["file"]
@@ -509,7 +509,7 @@ async def play(_, message: Message):
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            f"<i> ⚠️ {user.first_name} / Asisten MANmusicBOT tidak ada dalam grup :( , kakak Admin grup ini harus kirim username grup ini ke @Xmusichelper untuk menambahkan Asisten secara manual ya kak</i>"
+            f"<i> ⚠️ {user.first_name} / Asisten MANmusicBOT tidak ada dalam grup :(\nKakak Admin grup ini harus kirim username grup nya ke @Xmusichelper untuk menambahkan Asisten secara manual ya kak</i>"
         )
         return
     text_links=None
@@ -597,7 +597,7 @@ async def play(_, message: Message):
                 dur += (int(dur_arr[i]) * secmul)
                 secmul *= 60
             if (dur / 60) > DURATION_LIMIT:
-                 await lel.edit(f"❌ Videos longer than {DURATION_LIMIT} minutes aren't allowed to play!")
+                 await lel.edit(f"**❌Music melebihi batas pemutaran {DURATION_LIMIT} Tidak dapat diputar!**")
                  return
         except:
             pass        
