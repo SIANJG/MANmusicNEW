@@ -152,9 +152,9 @@ async def playlist(client, message):
         temp.append(t)
     now_playing = temp[0][0]
     by = temp[0][1].mention(style="md")
-    msg = "**Now Playing** in {}".format(message.chat.title)
+    msg = "**⚡️Sedang memutar di** in {}".format(message.chat.title)
     msg += "\n- " + now_playing
-    msg += "\n- Req by " + by
+    msg += "\n- 👤Atas permintaan  " + by
     temp.pop(0)
     if temp:
         msg += "\n\n"
@@ -163,7 +163,7 @@ async def playlist(client, message):
             name = song[0]
             usr = song[1].mention(style="md")
             msg += f"\n- {name}"
-            msg += f"\n- Req by {usr}\n"
+            msg += f"\n- 👤Atas permintaan {usr}\n"
     await message.reply_text(msg)
 
 
@@ -367,9 +367,9 @@ async def m_cb(b, cb):
             temp.append(t)
         now_playing = temp[0][0]
         by = temp[0][1].mention(style="md")
-        msg = "**Now Playing** in {}".format(cb.message.chat.title)
+        msg = "**⚡️Sedang memutar** in {}".format(cb.message.chat.title)
         msg += "\n- " + now_playing
-        msg += "\n- Req by " + by
+        msg += "\n-  " + by
         temp.pop(0)
         if temp:
             msg += "\n\n"
@@ -436,7 +436,7 @@ async def m_cb(b, cb):
                 await cb.answer.reply_text("✅ <b>Skipped</b>")
                 await cb.message.edit((m_chat, qeue), reply_markup=r_ply(the_data))
                 await cb.message.reply_text(
-                    f"- Skipped track\n- Now Playing **{qeue[0][0]}**"
+                    f"- Skip ke lagu\n- Sekarang diputar **{qeue[0][0]}**"
                 )
 
     else:
