@@ -146,7 +146,7 @@ async def playlist(client, message):
         return    
     queue = que.get(message.chat.id)
     if not queue:
-        await message.reply_text("💡Sedang tidak ada pemutaran music")
+        await message.reply_text("**💡Sedang tidak ada pemutaran musik**")
     temp = []
     for t in queue:
         temp.append(t)
@@ -294,7 +294,7 @@ async def p_cb(b, cb):
     if type_ == "playlist":
         queue = que.get(cb.message.chat.id)
         if not queue:
-            await cb.message.edit("💡Sedang tidak ada pemutaran music")
+            await cb.message.edit("**💡Sedang tidak ada pemutaran musik**")
         temp = []
         for t in queue:
             temp.append(t)
@@ -361,7 +361,7 @@ async def m_cb(b, cb):
     elif type_ == "playlist":
         queue = que.get(cb.message.chat.id)
         if not queue:
-            await cb.message.edit("💡Sedang tidak ada pemutaran music")
+            await cb.message.edit("**💡Sedang tidak ada pemutaran musik**")
         temp = []
         for t in queue:
             temp.append(t)
@@ -680,7 +680,7 @@ async def play(_, message: Message):
 
             except Exception as e:
                 await lel.edit(
-                    "**⚠️Lagu tidak dapat ditemukan...\nCoba lagu lain atau mungkin coba menulis info lagu dengan benar ❗️**"
+                    "**<i>⚠️Lagu tidak dapat ditemukan...\nCoba lagu lain atau mungkin coba menulis info lagu dengan benar ❗️</i>**"
                 )
                 print(str(e))
                 return
@@ -838,7 +838,7 @@ async def ytplay(_, message: Message):
 
     except Exception as e:
         await lel.edit(
-            "**⚠️Lagu tidak dapat ditemukan...\nCoba lagu lain atau mungkin coba menulis info lagu dengan benar ❗️**"
+            "<i>⚠️Lagu tidak dapat ditemukan...\nCoba lagu lain atau mungkin coba menulis info lagu dengan benar ❗️</i>"
         )
         print(str(e))
         return
@@ -1294,7 +1294,7 @@ async def lol_cb(b, cb):
         await b.send_photo(chat_id,
             photo="final.png",
             reply_markup=keyboard,
-            caption=f"**⚡️Sedang memutar musik**\n╚👤Atas permintaan : {r_by.mention}\n╚⏱Durasi : {duration}\n╚👁️Dilihat : {views} "
+            caption=f"**<i>⚡️Sedang memutar musik</i>**\n╚👤Atas permintaan : <i>{r_by.mention}</i>\n╚⏱Durasi : <i>{duration}</i>\n╚👁️Dilihat : <i>{views}<i/> "
         )
         
         os.remove("final.png")
