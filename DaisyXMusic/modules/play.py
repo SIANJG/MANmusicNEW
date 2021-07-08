@@ -124,10 +124,13 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     Image.alpha_composite(image5, image6).save("temp.png")
     img = Image.open("temp.png")
     draw = ImageDraw.Draw(img)
-    font = ImageFont.truetype("etc/font.otf", 50)
+    font = ImageFont.truetype("etc/font.otf", 30)
+    draw.text((205, 550), f"Judul : {title}", (255, 255, 255), font=font)
+    draw.text((205, 590), f"Durasi : {duration}", (255, 255, 255), font=font)
+    draw.text((205, 630), f"Dilihat : {views}", (255, 255, 255), font=font)
     draw.text(
-        (205, 590),
-        f"Atas permintaan: {requested_by}",
+        (205, 670),
+        f"Diputar oleh : {requested_by}",
         (255, 255, 255),
         font=font,
     )
@@ -297,18 +300,18 @@ async def p_cb(b, cb):
             temp.append(t)
         now_playing = temp[0][0]
         by = temp[0][1].mention(style="md")
-        msg = "<b>⚡️Sedang Memutar</b> in {}".format(cb.message.chat.title)
+        msg = "<b>Sedang Memutar</b> in {}".format(cb.message.chat.title)
         msg += "\n- " + now_playing
-        msg += "\n- 👤Atas permintaan" + by
+        msg += "\n- Permintaan" + by
         temp.pop(0)
         if temp:
             msg += "\n\n"
-            msg += "**💤Antrian**"
+            msg += "**Antrian**"
             for song in temp:
                 name = song[0]
                 usr = song[1].mention(style="md")
                 msg += f"\n- {name}"
-                msg += f"\n- 👤Atas permintaan {usr}\n"
+                msg += f"\n- Permintaan {usr}\n"
         await cb.message.edit(msg)
 
 
@@ -370,7 +373,7 @@ async def m_cb(b, cb):
         temp.pop(0)
         if temp:
             msg += "\n\n"
-            msg += "**💤Antrian**"
+            msg += "**Queue**"
             for song in temp:
                 name = song[0]
                 usr = song[1].mention(style="md")
@@ -455,7 +458,7 @@ async def play(_, message: Message):
     global useer
     if message.chat.id in DISABLED_GROUPS:
         return    
-    lel = await message.reply("♻️<i>Proses pencarian...</i>")
+    lel = await message.reply("♻️ <b>Proses pencarian...</b>")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
 
@@ -510,7 +513,7 @@ async def play(_, message: Message):
         )
         return
     text_links=None
-    await lel.edit("🔎 <i>Sedang mencari lagu...</i>")
+    await lel.edit("🔎 <b>Sedang dicari...</b>")
     if message.reply_to_message:
         if message.reply_to_message.audio:
             pass
@@ -621,7 +624,7 @@ async def play(_, message: Message):
         for i in message.command[1:]:
             query += " " + str(i)
         print(query)
-        await lel.edit("⏳ <i>Sedang diproses...</i>")
+        await lel.edit("⏳ **Sedang diproses...**")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         
         try:
@@ -630,7 +633,7 @@ async def play(_, message: Message):
           await lel.edit("Beri aku sesuatu untuk aku putar")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
-            toxxt = "**⚡️PILIH MUSIK YANG INGIN KAMU PUTAR⚡️**\n\n"
+            toxxt = "**⚡️ PILIH MUSIK YANG INGIN KAMU PUTAR⚡️**\n\n"
             j = 0
             useer=user_name
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣",]
@@ -677,7 +680,7 @@ async def play(_, message: Message):
 
             except Exception as e:
                 await lel.edit(
-                    "<i>⚠️Lagu tidak dapat ditemukan...\nCoba lagu lain atau mungkin coba menulis **info lagu** dengan benar ❗️</i>"
+                    "**<i>⚠️Lagu tidak dapat ditemukan...\nCoba lagu lain atau mungkin coba menulis info lagu dengan benar ❗️</i>**"
                 )
                 print(str(e))
                 return
@@ -720,7 +723,7 @@ async def play(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"**🏷Permintaan lagu dari: <i>{r_by.mention}</i>**\nSedang dalam **<i>antrian</i>** ke **#{position}**\n<i>Mohon di tunggu..💤</i>",
+            caption=f"⚡️Permintaan lagu dari {r_by.mention}\nSedang dalam <b>antrian</b> ke {position}!",
             reply_markup=keyboard,
         )
         os.remove("final.png")
@@ -755,7 +758,7 @@ async def ytplay(_, message: Message):
     global que
     if message.chat.id in DISABLED_GROUPS:
         return
-    lel = await message.reply("🔄 <i>Memperoses...</i>")
+    lel = await message.reply("🔄 <b>Memperoses...</b>")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
 
@@ -809,7 +812,7 @@ async def ytplay(_, message: Message):
             f"<i> {user.first_name} Userbot not in this chat, Ask admin to send /play command for first time or add {user.first_name} manually</i>"
         )
         return
-    await lel.edit("🔎 <i>Sedang mencari...</i>")
+    await lel.edit("🔎 <b>Sedang dicari...</b>")
     user_id = message.from_user.id
     user_name = message.from_user.first_name
      
@@ -818,7 +821,7 @@ async def ytplay(_, message: Message):
     for i in message.command[1:]:
         query += " " + str(i)
     print(query)
-    await lel.edit("⏳ <i>Proses</i>")
+    await lel.edit("⏳ <b>proses</b>")
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -835,7 +838,7 @@ async def ytplay(_, message: Message):
 
     except Exception as e:
         await lel.edit(
-            "<i>⚠️ Lagu tidak dapat ditemukan...\nCoba lagu lain atau mungkin coba menulis **info lagu** dengan benar ❗️</i>"
+            "<i>⚠️ Lagu tidak dapat ditemukan...\nCoba lagu lain atau mungkin coba menulis info lagu dengan benar ❗️</i>"
         )
         print(str(e))
         return
@@ -878,7 +881,7 @@ async def ytplay(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"**🏷Permintaan lagu dari: <i>{r_by.mention}</i>**\nSedang dalam <i>antrian</i> ke **#{position}**\n<i>Mohon di tunggu..💤</i>",
+            caption=f"⚡️Permintaan lagu dari {r_by.mention}\nSedang dalam <b>antrian</b> ke {position}!",
             reply_markup=keyboard,
         )
         os.remove("final.png")
@@ -912,7 +915,7 @@ async def deezer(client: Client, message_: Message):
     if message_.chat.id in DISABLED_GROUPS:
         return
     global que
-    lel = await message_.reply("🔄 <i>Memperoses</i>")
+    lel = await message_.reply("🔄 <b>Memperoses</b>")
     administrators = await get_administrators(message_.chat)
     chid = message_.chat.id
     try:
@@ -1050,7 +1053,7 @@ async def jiosaavn(client: Client, message_: Message):
     global que
     if message_.chat.id in DISABLED_GROUPS:
         return    
-    lel = await message_.reply("♻️ <b>Sedang di proses...</b>")
+    lel = await message_.reply("<i>♻️ Sedang di proses...</i>")
     administrators = await get_administrators(message_.chat)
     chid = message_.chat.id
     try:
@@ -1269,7 +1272,7 @@ async def lol_cb(b, cb):
         await cb.message.delete()
         await b.send_photo(chat_id,
             photo="final.png",
-            caption=f"**🏷Permintaan lagu dari: <i>{r_by.mention}</i>**\nSedang dalam <i>antrian</i> ke **#{position}**\n<i>Mohon di tunggu..💤</i>",
+            caption=f"<b>✅ Permintaan lagu dari {r_by.mention}\nSedang dalam <i>antrian</i> ke #️⃣**{position}**\nMohon di tunggu ...</b>",
             reply_markup=keyboard,
         )
         os.remove("final.png")
@@ -1291,7 +1294,7 @@ async def lol_cb(b, cb):
         await b.send_photo(chat_id,
             photo="final.png",
             reply_markup=keyboard,
-            caption=f"**<p>⚡️Sedang memutar musik</p>**\n╚👤Atas permintaan : <i>{r_by.mention}</i>\n╚⏱Durasi : <i>{duration}</i>\n╚👁️Dilihat : <i>{views}<i/> "
+            caption=f"<p>⚡️Sedang memutar musik</p>**\n╚👤Atas permintaan : <i>{r_by.mention}</i>\n╚⏱Durasi : <i>{duration}</i>\n╚👁️Dilihat : <i>{views}<i/> "
         )
         
         os.remove("final.png")
