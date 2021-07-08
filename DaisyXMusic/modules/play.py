@@ -67,14 +67,14 @@ def cb_admin_check(func: Callable) -> Callable:
     async def decorator(client, cb):
         admemes = a.get(cb.message.chat.id)
         if cb.from_user.id in admemes:
-            return await func(client, cb)
+            return await func(client, cb)%
         else:
             await cb.answer("You ain't allowed!", show_alert=True)
             return
 
     return decorator
 
-
+B.     
 def transcode(filename):
     ffmpeg.input(filename).output(
         "input.raw", format="s16le", acodec="pcm_s16le", ac=2, ar="48k"
@@ -125,13 +125,8 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     img = Image.open("temp.png")
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype("etc/font.otf", 40)
-    draw.text((205, 550), f"{title}", (255, 255, 255), font=font
-    draw.text(
-        (205, 590),
-        f"Atas permintaan: {requested_by}",
-        (255, 255, 255),
-        font=font,
-    )
+    draw.text((205, 550), f"{title}", (255, 255, 255), font=font)
+    draw.text((205, 590), f"Di putar oleh {requested_by}", (255, 255, 255), font=font)
     img.save("final.png")
     os.remove("temp.png")
     os.remove("background.png")
