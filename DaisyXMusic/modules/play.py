@@ -130,7 +130,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     draw.text((205, 630), f"Dilihat : {views}", (255, 255, 255), font=font)
     draw.text(
         (205, 670),
-        f"Diputar oleh : {requested_by}",format(message.chat.title)
+        f"Diputar oleh : {requested_by}",
         (255, 255, 255),
         font=font,
     )
