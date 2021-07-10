@@ -69,7 +69,7 @@ def cb_admin_check(func: Callable) -> Callable:
         if cb.from_user.id in admemes:
             return await func(client, cb)
         else:
-            await cb.answer("You ain't allowed!", show_alert=True)
+            await cb.answer("Kamu Tidak diizinkan!", show_alert=True)
             return
 
     return decorator
@@ -146,7 +146,7 @@ async def playlist(client, message):
         return    
     queue = que.get(message.chat.id)
     if not queue:
-        await message.reply_text("**💡Sedang tidak ada pemutaran musik**")
+        await message.reply_text("**💡Sedang tidak Memutar lagu**")
     temp = []
     for t in queue:
         temp.append(t)
@@ -216,7 +216,7 @@ async def ee(client, message):
     if stats:
         await message.reply(stats)
     else:
-        await message.reply("TIDAK ADA OBROLAN SUARA AKTIF")
+        await message.reply("Silahkan Nyalakan dulu VCG nya!")
 
 
 @Client.on_message(filters.command("player") & filters.group & ~filters.edited)
@@ -237,7 +237,7 @@ async def settings(client, message):
         else:
             await message.reply(stats, reply_markup=r_ply("play"))
     else:
-        await message.reply("Tidak ada obrolan suars disini")
+        await message.reply("Silahkan Nyalakan dulu VCG nya!")
 
 
 @Client.on_message(
@@ -252,7 +252,7 @@ async def hfmm(_, message):
         return
     if len(message.command) != 2:
         await message.reply_text(
-            "I only recognize `/musicplayer on` and /musicplayer `off only`"
+            "Saya hanya mengenali** `/musicplayer on` **dan** `/musicplayer off`"
         )
         return
     status = message.text.split(None, 1)[1]
@@ -260,26 +260,26 @@ async def hfmm(_, message):
     if status == "ON" or status == "on" or status == "On":
         lel = await message.reply("`Memperosess...`")
         if not message.chat.id in DISABLED_GROUPS:
-            await lel.edit("Music Player Sudah Siap disini")
+            await lel.edit("Pemutar Musik Sudah Diaktifkan Di Obrolan Ini")
             return
         DISABLED_GROUPS.remove(message.chat.id)
         await lel.edit(
-            f"Music Player Successfully Enabled For Users In The Chat {message.chat.id}"
+            f"Pemutar Musik Sudah Diaktifkan Di Obrolan Ini {message.chat.id}"
         )
 
     elif status == "OFF" or status == "off" or status == "Off":
-        lel = await message.reply("`memperoses...`")
+        lel = await message.reply("`Memperoses...`")
         
         if message.chat.id in DISABLED_GROUPS:
-            await lel.edit("Music Player Already turned off In This Chat")
+            await lel.edit("Pemutar Musik Sudah dimatikan Dalam Obrolan Ini")
             return
         DISABLED_GROUPS.append(message.chat.id)
         await lel.edit(
-            f"Music Player Successfully Deactivated For Users In The Chat {message.chat.id}"
+            f"Pemutar Musik Sudah dimatikan Dalam Obrolan Ini {message.chat.id}"
         )
     else:
         await message.reply_text(
-            "I only recognize `/musicplayer on` and /musicplayer `off only`"
+            "Saya hanya mengenali** `/musicplayer on` **dan** `/musicplayer off`"
         )    
         
 
@@ -294,13 +294,13 @@ async def p_cb(b, cb):
     if type_ == "playlist":
         queue = que.get(cb.message.chat.id)
         if not queue:
-            await cb.message.edit("**💡Sedang tidak ada pemutaran musik**")
+            await cb.message.edit("**💡Sedang tidak memutar lagu**")
         temp = []
         for t in queue:
             temp.append(t)
         now_playing = temp[0][0]
         by = temp[0][1].mention(style="md")
-        msg = "<b>Sedang Memutar</b> in {}".format(cb.message.chat.title)
+        msg = "<b>Lagu yang sedang dimainkan</b> in {}".format(cb.message.chat.title)
         msg += "\n- " + now_playing
         msg += "\n- Permintaan" + by
         temp.pop(0)
@@ -338,7 +338,7 @@ async def m_cb(b, cb):
         if (chet_id not in callsmusic.active_chats) or (
             callsmusic.active_chats[chet_id] == "paused"
         ):
-            await cb.answer("Chat is not connected!", show_alert=True)
+            await cb.answer("***Sedang Tidak Terhubung dengan VCG**", show_alert=True)
         else:
             callsmusic.pause(chet_id)
             await cb.answer("Music Paused!")
@@ -367,13 +367,13 @@ async def m_cb(b, cb):
             temp.append(t)
         now_playing = temp[0][0]
         by = temp[0][1].mention(style="md")
-        msg = "**⚡️Sedang memutar** in {}".format(cb.message.chat.title)
+        msg = "**⚡️Lagu Yang Sedang dimainkan** in {}".format(cb.message.chat.title)
         msg += "\n- " + now_playing
         msg += "\n-  " + by
         temp.pop(0)
         if temp:
             msg += "\n\n"
-            msg += "**Queue**"
+            msg += "**Antrian lagu**"
             for song in temp:
                 name = song[0]
                 usr = song[1].mention(style="md")
@@ -385,7 +385,7 @@ async def m_cb(b, cb):
         if (chet_id not in callsmusic.active_chats) or (
             callsmusic.active_chats[chet_id] == "playing"
         ):
-            await cb.answer("Chat is not connected or already playng", show_alert=True)
+            await cb.answer("**Obrolan tidak terhubung atau sudah diputar**", show_alert=True)
         else:
             callsmusic.resume(chet_id)
             await cb.answer("Music Resumed!")
@@ -393,7 +393,7 @@ async def m_cb(b, cb):
         if (chet_id not in callsmusic.active_chats) or (
             callsmusic.active_chats[chet_id] == "paused"
         ):
-            await cb.answer("Chat is not connected or already paused", show_alert=True)
+            await cb.answer("Obrolan tidak terhubung atau sudah dipause", show_alert=True)
         else:
             callsmusic.pause(chet_id)
             await cb.answer("Music Paused!")
@@ -423,17 +423,17 @@ async def m_cb(b, cb):
         if qeue:
             qeue.pop(0)
         if chet_id not in callsmusic.active_chats:
-            await cb.answer("Chat is not connected!", show_alert=True)
+            await cb.answer("Sedang Tidak Terhubung dengan VCG", show_alert=True)
         else:
             queues.task_done(chet_id)
             if queues.is_empty(chet_id):
                 callsmusic.stop(chet_id)
-                await cb.message.edit("- Tidak ada daftar putar..\n- Keluar voice chat!")
+                await cb.message.edit("- Tidak ada Playlist..\n- Keluar dari VCG!")
             else:
                 await callsmusic.set_stream(
                     chet_id, queues.get(chet_id)["file"]
                 )
-                await cb.answer.reply_text("✅ <b>Skipped</b>")
+                await cb.answer.reply_text("✅ <b>Melewati Lagu</b>")
                 await cb.message.edit((m_chat, qeue), reply_markup=r_ply(the_data))
                 await cb.message.reply_text(
                     f"- Skip ke lagu\n- Sekarang diputar **{qeue[0][0]}**"
@@ -449,7 +449,7 @@ async def m_cb(b, cb):
             await callsmusic.stop(chet_id)
             await cb.message.edit("Successfully Left the Chat!")
         else:
-            await cb.answer("Chat is not connected!", show_alert=True)
+            await cb.answer("Sedang Tidak Terhubung dengan VCG", show_alert=True)
 
 
 @Client.on_message(command("play") & other_filters)
@@ -458,14 +458,14 @@ async def play(_, message: Message):
     global useer
     if message.chat.id in DISABLED_GROUPS:
         return    
-    lel = await message.reply("♻️ <b>Proses pencarian...</b>")
+    lel = await message.reply("**♻️Sedang Memproses Lagu**")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
 
     try:
         user = await USER.get_me()
     except:
-        user.first_name = "helper"
+        user.first_name = "MANmusicBOT"
     usar = user
     wew = usar.id
     try:
@@ -476,24 +476,24 @@ async def play(_, message: Message):
             if administrator == message.from_user.id:
                 if message.chat.title.startswith("Channel Music: "):
                     await lel.edit(
-                        "<b>Tambahkan bantuan ke grup</b>",
+                        "<b>Ingatlah untuk menambahkan {user.first_name} ke Channel Anda</b>",
                     )
                     pass
                 try:
                     invitelink = await _.export_chat_invite_link(chid)
                 except:
                     await lel.edit(
-                        "<b>Tambahkan saya menjadi admin</b>",
+                        "<b>Tambahkan saya sebagai admin grup Anda terlebih dahulu</b>",
                     )
                     return
 
                 try:
                     await USER.join_chat(invitelink)
                     await USER.send_message(
-                        message.chat.id, "Saya bergabung ke grup untuk memutar music"
+                        message.chat.id, "<b>{user.first_name} berhasil bergabung dengan Group anda</b>"
                     )
                     await lel.edit(
-                        "<b>Bot bergabung ke dalam grup</b>",
+                        "<b>{user.first_name} berhasil bergabung dengan Group anda</b>",
                     )
 
                 except UserAlreadyParticipant:
@@ -501,19 +501,19 @@ async def play(_, message: Message):
                 except Exception:
                     # print(e)
                     await lel.edit(
-                        f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your group due to heavy requests for userbot! Make sure user is not banned in group."
-                        "\n\nOr manually add assistant to your Group and try again</b>",
+                        f"<b>⛑ Flood Wait Error ⛑\n{user.first_name} tidak dapat bergabung dengan grup Anda karena banyaknya permintaan bergabung untuk userbot! Pastikan pengguna tidak dibanned dalam grup."
+                        "\n\nAtau tambahkan @{ASSISTANT_NAME} secara manual ke Grup Anda dan coba lagi</b>",
                     )
     try:
         await USER.get_chat(chid)
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            f"<i> ⚠️ {user.first_name} / Asisten MANmusicBOT tidak ada dalam grup :(\nKakak Admin grup ini harus kirim username grup nya ke @Xmusichelper untuk menambahkan Asisten secara manual ya kak</i>"
+            f"⚠️<i>{user.first_name} terkena banned dari Grup ini, Minta admin untuk mengirim perintah `/unban @{ASSISTANT_NAME}` secara manual, Lalu coba play lagi<i/>"
         )
         return
     text_links=None
-    await lel.edit("🔎 <b>Sedang dicari...</b>")
+    await lel.edit("🔎 **Sedang Mencari Lagu...**")
     if message.reply_to_message:
         if message.reply_to_message.audio:
             pass
@@ -543,7 +543,7 @@ async def play(_, message: Message):
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             await lel.edit(
-                f"❌ Durasi terlalu panjang {DURATION_LIMIT} minute(s) aren't allowed to play!"
+                f"❌ **Lagu dengan durasi lebih dari** `{DURATION_LIMIT}` **menit tidak bisa diputar!"
             )
             return
         keyboard = InlineKeyboardMarkup(
@@ -570,7 +570,7 @@ async def play(_, message: Message):
         )
     elif urls:
         query = toxt
-        await lel.edit("⏳ <b>Proses...</b>")
+        await lel.edit("⏳**Sedang Memproses Lagu...**")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
@@ -587,7 +587,7 @@ async def play(_, message: Message):
 
         except Exception as e:
             await lel.edit(
-                "Lagu tidak ditemukan. Coba lagu lain atau mungkin mengejanya dengan benar."
+                "**Lagu tidak ditemukan.** Coba cari dengan judul lagu yang lebih jelas, Ketik `/help` bila butuh bantuan."
             )
             print(str(e))
             return
@@ -597,7 +597,7 @@ async def play(_, message: Message):
                 dur += (int(dur_arr[i]) * secmul)
                 secmul *= 60
             if (dur / 60) > DURATION_LIMIT:
-                 await lel.edit(f"**❌Music melebihi batas pemutaran {DURATION_LIMIT} Tidak dapat diputar!**")
+                 await lel.edit(f"**❌ **Lagu dengan durasi lebih dari** `{DURATION_LIMIT}` **menit tidak bisa diputar!**")
                  return
         except:
             pass        
@@ -624,13 +624,13 @@ async def play(_, message: Message):
         for i in message.command[1:]:
             query += " " + str(i)
         print(query)
-        await lel.edit("⏳ **Sedang diproses...**")
+        await lel.edit("⏳ **Sedang Memproses Lagu...**")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         
         try:
           results = YoutubeSearch(query, max_results=5).to_dict()
         except:
-          await lel.edit("Beri aku sesuatu untuk aku putar")
+          await lel.edit("**Beri Judul Lagu untuk diputar**")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
             toxxt = "**⚡️ PILIH MUSIK YANG INGIN KAMU PUTAR⚡️**\n\n"
@@ -664,7 +664,7 @@ async def play(_, message: Message):
             return
             # Returning to pornhub
         except:
-            await lel.edit("Tidak ada lagu untuk dipilih.. Saya putar random aja deh..")
+            await lel.edit("**Memulai bermain langsung..**")
                         
             # print(results)
             try:
@@ -690,7 +690,7 @@ async def play(_, message: Message):
                     dur += (int(dur_arr[i]) * secmul)
                     secmul *= 60
                 if (dur / 60) > DURATION_LIMIT:
-                     await lel.edit(f"❌ Music melebihi durasi {DURATION_LIMIT} Tidak dapat diputar!")
+                     await lel.edit(f"❌ **Lagu dengan durasi lebih dari** `{DURATION_LIMIT}` **menit tidak bisa diputar!**")
                      return
             except:
                 pass
@@ -758,7 +758,7 @@ async def ytplay(_, message: Message):
     global que
     if message.chat.id in DISABLED_GROUPS:
         return
-    lel = await message.reply("🔄 <b>Memperoses...</b>")
+    lel = await message.reply("🔄 <b>Sedang Memproses Lagu...</b>")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
 
@@ -776,14 +776,14 @@ async def ytplay(_, message: Message):
             if administrator == message.from_user.id:
                 if message.chat.title.startswith("Channel Music: "):
                     await lel.edit(
-                        "<b>Remember to add helper to your channel</b>",
+                        "<b>Ingatlah untuk menambahkan {user.first_name} ke Channel Anda</b>",
                     )
                     pass
                 try:
                     invitelink = await _.export_chat_invite_link(chid)
                 except:
                     await lel.edit(
-                        "<b>Add me as admin of yor group first</b>",
+                        "<b>Tambahkan saya sebagai admin grup Anda terlebih dahulu</b>",
                     )
                     return
 
@@ -793,7 +793,7 @@ async def ytplay(_, message: Message):
                         message.chat.id, "Saya sudah bergabug ke dalam voice chat grup"
                     )
                     await lel.edit(
-                        "<b>helper userbot masuk ke dalam chat</b>",
+                        "<b>{user.first_name} berhasil bergabung dengan Group anda</b>",
                     )
 
                 except UserAlreadyParticipant:
@@ -801,18 +801,18 @@ async def ytplay(_, message: Message):
                 except Exception:
                     # print(e)
                     await lel.edit(
-                        f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your group due to heavy requests for userbot! Make sure user is not banned in group."
-                        "\n\nOr manually add assistant to your Group and try again</b>",
+                        f"<b>⛑ Flood Wait Error ⛑\n{user.first_name} tidak dapat bergabung dengan grup Anda karena banyaknya permintaan bergabung untuk userbot! Pastikan pengguna tidak dibanned dalam grup."
+                        "\n\nAtau tambahkan @{ASSISTANT_NAME} secara manual ke Grup Anda dan coba lagi</b>",
                     )
     try:
         await USER.get_chat(chid)
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            f"<i> {user.first_name} Userbot not in this chat, Ask admin to send /play command for first time or add {user.first_name} manually</i>"
+            f"<i>{user.first_name} terkena banned dari Grup ini, Minta admin untuk mengirim perintah `/unban @{ASSISTANT_NAME}` secara manual, Lalu coba play lagi.</i>"
         )
         return
-    await lel.edit("🔎 <b>Sedang dicari...</b>")
+    await lel.edit("🔎 **Sedang Mencari Lagu...**")
     user_id = message.from_user.id
     user_name = message.from_user.first_name
      
@@ -821,7 +821,7 @@ async def ytplay(_, message: Message):
     for i in message.command[1:]:
         query += " " + str(i)
     print(query)
-    await lel.edit("⏳ <b>proses</b>")
+    await lel.edit("⏳**Sedang Memproses Lagu**")
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -838,7 +838,7 @@ async def ytplay(_, message: Message):
 
     except Exception as e:
         await lel.edit(
-            "<i>⚠️ Lagu tidak dapat ditemukan...\nCoba lagu lain atau mungkin coba menulis info lagu dengan benar ❗️</i>"
+            "**Lagu tidak ditemukan.** Coba cari dengan judul lagu yang lebih jelas, Ketik `/help` bila butuh bantuan**"
         )
         print(str(e))
         return
@@ -848,7 +848,7 @@ async def ytplay(_, message: Message):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
         if (dur / 60) > DURATION_LIMIT:
-             await lel.edit(f"❌ Videos longer than {DURATION_LIMIT} minutes aren't allowed to play!")
+             await lel.edit(f"❌ **Lagu dengan durasi lebih dari** `{DURATION_LIMIT}` **menit tidak bisa diputar!")
              return
     except:
         pass    
@@ -1059,7 +1059,7 @@ async def jiosaavn(client: Client, message_: Message):
     try:
         user = await USER.get_me()
     except:
-        user.first_name = "DaisyMusic"
+        user.first_name = "MANmusicBOT"
     usar = user
     wew = usar.id
     try:
@@ -1070,24 +1070,24 @@ async def jiosaavn(client: Client, message_: Message):
             if administrator == message_.from_user.id:
                 if message_.chat.title.startswith("Channel Music: "):
                     await lel.edit(
-                        "<b>Remember to add helper to your channel</b>",
+                        "<b>Ingatlah untuk menambahkan {user.first_name} ke Channel Anda</b>",
                     )
                     pass
                 try:
                     invitelink = await client.export_chat_invite_link(chid)
                 except:
                     await lel.edit(
-                        "<b>Add me as admin of yor group first</b>",
+                        "<b>Tambahkan saya sebagai admin grup Anda terlebih dahulu</b>",
                     )
                     return
 
                 try:
                     await USER.join_chat(invitelink)
                     await USER.send_message(
-                        message_.chat.id, "I joined this group for playing music in VC"
+                        message_.chat.id, "<b>Tambahkan saya sebagai admin grup Anda terlebih dahulu</b>"
                     )
                     await lel.edit(
-                        "<b>helper userbot joined your chat</b>",
+                        "<b>{user.first_name} berhasil bergabung dengan Group anda</b>",
                     )
 
                 except UserAlreadyParticipant:
@@ -1095,15 +1095,15 @@ async def jiosaavn(client: Client, message_: Message):
                 except Exception:
                     # print(e)
                     await lel.edit(
-                        f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your group due to heavy requests for userbot! Make sure user is not banned in group."
-                        "\n\nOr manually add @DaisyXmusic to your Group and try again</b>",
+                        f"<b>⛑ Flood Wait Error ⛑\n{user.first_name} tidak dapat bergabung dengan grup Anda karena banyaknya permintaan bergabung untuk userbot! Pastikan pengguna tidak dibanned dalam grup."
+                        "\n\nAtau tambahkan @{ASSISTANT_NAME} secara manual ke Grup Anda dan coba lagi</b>",
                     )
     try:
         await USER.get_chat(chid)
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            "<i> helper Userbot not in this chat, Ask admin to send /play command for first time or add assistant manually</i>"
+            "<i>{user.first_name} terkena banned dari Grup ini, Minta admin untuk mengirim perintah `/unban @{ASSISTANT_NAME}` secara manual, Lalu coba play lagi.</i>"
         )
         return
     requested_by = message_.from_user.first_name
@@ -1123,13 +1123,13 @@ async def jiosaavn(client: Client, message_: Message):
         sthumb = songs.result[0].image
         sduration = int(songs.result[0].duration)
     except Exception as e:
-        await res.edit("Found Literally Nothing!, You Should Work On Your English.")
+        await res.edit("Tidak Ditemukan Lagu Apa Pun!.")
         print(str(e))
         return
     try:    
         duuration= round(sduration / 60)
         if duuration > DURATION_LIMIT:
-            await cb.message.edit(f"Music longer than {DURATION_LIMIT}min are not allowed to play")
+            await cb.message.edit(f"Lagu lebih lama dari** `{DURATION_LIMIT}` menit tidak diperbolehkan diputar")
             return
     except:
         pass    
@@ -1202,13 +1202,13 @@ async def lol_cb(b, cb):
     try:
         x,query,useer_id = typed_.split("|")      
     except:
-        await cb.message.edit("**Lagu tidak ditemukan 🤦‍♀**")
+        await cb.message.edit("Lagu tidak ditemukan 🤦‍♀")
         return
     useer_id = int(useer_id)
     if cb.from_user.id != useer_id:
         await cb.answer("Anda bukan orang yang meminta untuk memutar lagu!", show_alert=True)
         return
-    await cb.message.edit("<i>Tunggu...\nMusik akan segera diputar 🚀</i>")
+    await cb.message.edit("**Sedang Memproses Lagu untuk diputar**🚀")
     x=int(x)
     try:
         useer_name = cb.message.reply_to_message.from_user.first_name
@@ -1229,7 +1229,7 @@ async def lol_cb(b, cb):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
         if (dur / 60) > DURATION_LIMIT:
-             await cb.message.edit(f"Musik lebih lama dari {DURATION_LIMIT} menit tidak diizinkan untuk diputar")
+             await cb.message.edit(f**Lagu lebih lama dari** `{DURATION_LIMIT}` menit tidak diperbolehkan diputar")
              return
     except:
         pass
