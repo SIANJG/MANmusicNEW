@@ -1229,7 +1229,7 @@ async def lol_cb(b, cb):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
         if (dur / 60) > DURATION_LIMIT:
-             await cb.message.edit(f**Lagu lebih lama dari** `{DURATION_LIMIT}` menit tidak diperbolehkan diputar")
+             await cb.message.edit(f"**Lagu lebih lama dari** `{DURATION_LIMIT}` menit tidak diperbolehkan diputar")
              return
     except:
         pass
